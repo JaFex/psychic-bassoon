@@ -1,7 +1,7 @@
 {
     "name": "FinanceApp",
     "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
+    "service": "api",
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
