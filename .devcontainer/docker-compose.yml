@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  api:
+    container_name: finance_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+    volumes:
+      - ..:/workspace:cached
+    depends_on:
+      - database
+    command: sleep infinity
+    networks:
+      - app-network
+
+  database:
+    container_name: finance_database
+    image: postgres:alpine # Usando a versão LTS mais recente do PostgreSQL
+    environment:
+      POSTGRES_USER: b2VFRRszxMWsmDkl
+      POSTGRES_PASSWORD: w9kZm1EKjpEnH83Z
+      POSTGRES_DB: development
+    ports:
+      - "5432:5432" # Porta padrão do PostgreSQL
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Volume para persistência dos dados
+    networks:
+      - app-network
+
+volumes:
+  vendor:
+    driver: local
+  pgdata:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
