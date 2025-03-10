@@ -16,7 +16,9 @@
             },
             "extensions": [
                 "esbenp.prettier-vscode",
-                "dbaeumer.vscode-eslint"
+                "dbaeumer.vscode-eslint",
+                "jripouteau.adonis-vscode-extension",
+                "cweijan.vscode-postgresql-client2"
             ]
         }
     }
